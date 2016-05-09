@@ -1,11 +1,15 @@
 <!doctype html>
-<html>
+<html style="height:100vh; overflow: hidden">
 <head>
   <meta charset="utf-8">
   <title>GravityRocks</title>
   <base href="/">
   {{content-for 'head'}}
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+  <link href="index.css"
+        rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Service worker support is disabled by default.
@@ -20,7 +24,7 @@
   </script>
   -->
 </head>
-<body>
+<body style="height:100%;">
   <gravity-rocks-app>Loading...</gravity-rocks-app>
 
   <script src="vendor/es6-shim/es6-shim.js"></script>

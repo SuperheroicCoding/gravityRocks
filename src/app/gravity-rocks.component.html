@@ -1,3 +1,25 @@
-<h1>
-  {{title}}
-</h1>
+<md-sidenav-layout color="primary">
+  <md-sidenav #start mode="over">
+    <div class="gravitySidenav">
+    <h2>Navigation</h2>
+    <md-list>
+      <md-list-item>
+        <a md-button [routerLink]="['gravityWorld']">Starte GravityWorld</a>
+      </md-list-item>
+    </md-list>
+    </div>
+  </md-sidenav>
+
+  <div class="gravityRocksApp">
+    <md-toolbar color="primary">
+      <button md-icon-button (click)="start.toggle()">
+        <md-icon>menu</md-icon>
+      </button>
+      <span>Angular2 Gravity World</span>
+    </md-toolbar>
+    <div class="pageContent">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</md-sidenav-layout>
+

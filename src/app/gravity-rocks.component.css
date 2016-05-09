@@ -1,0 +1,17 @@
+.pageContent {
+  margin: 10px;
+  display: flex;
+  align-self: flex-start;
+  align-content: stretch;
+}
+
+gravity-world {
+  overflow: scroll;
+}
+
+.gravityRocksApp {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-content: center;
+}

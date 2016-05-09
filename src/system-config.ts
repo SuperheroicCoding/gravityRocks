@@ -3,11 +3,28 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+  '@angular2-material': 'vendor/@angular2-material',
 };
 
 /** User packages configuration. */
-const packages: any = {
-};
+let angularMaterialPackages = [
+  'core',
+  'sidenav',
+  'toolbar',
+  'icon',
+  'button',
+  'list',
+  'input',
+  'card'];
+
+const packages: any = angularMaterialPackages.reduce((last, name) => {
+  last['@angular2-material/' + name] = {
+    main: name
+  };
+  return last;
+}, {});
+console.log(packages);
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 /***********************************************************************************************
@@ -29,12 +46,13 @@ const barrels: string[] = [
   // App specific barrels.
   'app',
   'app/shared',
-  /** @cli-barrel */
+  'app/gravity-world',
+/** @cli-barrel */
 ];
 
 const cliSystemConfigPackages: any = {};
 barrels.forEach((barrelName: string) => {
-  cliSystemConfigPackages[barrelName] = { main: 'index' };
+  cliSystemConfigPackages[barrelName] = {main: 'index'};
 });
 
 /** Type declaration for ambient System. */
@@ -51,4 +69,4 @@ System.config({
 });
 
 // Apply the user's configuration.
-System.config({ map, packages });
+System.config({map, packages});

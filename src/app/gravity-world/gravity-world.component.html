@@ -1,0 +1,44 @@
+<div id="simLayout">
+  <md-card class="gravitationalForceCard">
+    <md-toolbar color="primary">Play with the values</md-toolbar>
+    <md-card-content>
+      <form>
+        <md-input type="number" placeholder="Gravitational Force"
+                  (change)="updateGravitationalConstant($event.target.value)"
+                  [value]="gravitationalConstant">
+        </md-input>
+        <md-input type="number" placeholder="Mass of Sun" (change)="massSun$.emit($event.target.value)"
+                  [value]="massSunObs$ | async">
+        </md-input>
+        <button md-raised-button color="primary" (click)="startSim($event.target.value)">
+          Start
+        </button>
+        <button md-raised-button color="accent" (click)="stopSim($event.target.value)">
+          Pause
+        </button>
+      </form>
+      <md-list>
+        <md-toolbar id="infos">Infos</md-toolbar>
+        <md-list-item>
+          <span class="planetCount">PlanetCount = {{planetsAmount$ | async}}</span>
+        </md-list-item>
+      </md-list>
+    </md-card-content>
+  </md-card>
+  <md-card class="gravitationalForceCard">
+    <md-toolbar color="primary">See the action</md-toolbar>
+    <md-card-content>
+      <svg [style.width.px]="MAX_DIM.x"
+           [style.height.px]="MAX_DIM.y"
+           (mousedown)="mouseDown($event)"
+           (mousemove)="mouseMove($event)"
+           (mouseup)="mouseUp($event)">
+        <g>
+          <circle [attr.cx]="x$ | async" [attr.cy]="y$ | async" r="10" fill="red"></circle>
+          <circle id="sun" draggable [attr.cx]="mouseX$ | async" [attr.cy]="mouseY$ | async" r="25"
+                  fill="yellow"></circle>
+        </g>
+      </svg>
+    </md-card-content>
+  </md-card>
+</div>
