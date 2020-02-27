@@ -37,7 +37,7 @@
   "devDependencies": {
     "angular-cli": "0.0.*",
     "clang-format": "^1.0.35",
-    "codelyzer": "0.0.14",
+    "codelyzer": "5.2.1",
     "ember-cli-inject-live-reload": "^1.4.0",
     "jasmine-core": "^2.4.1",
     "jasmine-spec-reporter": "^2.4.0",
